@@ -1,0 +1,61 @@
+<div class="container-fluid main">
+  <div class="row align-items-center mb-3">
+    <div class="col-md-12 d-flex justify-content-between align-items-center">
+      <div class="title">Categories</div>
+      <div>
+        <button class="btn btn-primary mr-2" (click)="toggleFilter()">
+          <em class="fa-solid fa-filter"></em>
+        </button>
+        <button class="btn btn-success" (click)="navigateToCategoryCreation()">+ Add new</button>
+
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div *ngIf="showFilter" class="col-md-3 d-flex flex-column filter-section">
+      <div class="card flex-grow-1">
+        <div class="card-body">
+          <div class="form-group">
+            <label>Filter</label> <hr />
+            <label for="categoryName">Category Name</label>
+            <input type="text" class="form-control" id="categoryName" [(ngModel)]="filter.categoryName" (input)="onInputChange()" minlength="1" maxlength="30" required>
+          </div>
+          <div class="form-group">
+            <label for="active">Active</label>
+            <select class="form-control" id="active" [(ngModel)]="filter.isActive" (change)="applyFilter()">
+              <option value="active">Active</option>
+              <option value="inactive">In-Active</option>
+            </select>
+            <button class="btn btn-link position-absolute clear-button" (click)="clearActiveFilter()" *ngIf="filter.isActive">
+              <em class="fa-solid fa-times"></em>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div [ngClass]="{'col-md-9': showFilter, 'col-md-12': !showFilter}" class="table-responsive">
+      <table class="table table-hover ">
+        <thead>
+          <tr>
+            <th (click)="sortCategories('categoryName')">Category Name</th>
+            <th (click)="sortCategories('isActive')">Active</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let category of filteredCategories">
+            <td>
+              <div class="category-item" (click)="navigateToCategoryUpdate(category.categoryId)">
+                <img [src]="category.image" alt="Category Image" class="category-image">
+                <span class="category-name">{{ category.categoryName }}</span>
+              </div>
+            </td>
+            <td class="mark">{{ category.isActive ? '✓' : '✗' }}</td>
+          </tr>
+          <tr *ngIf="filteredCategories.length === 0">
+            <td colspan="5" class="text-center">Not found</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

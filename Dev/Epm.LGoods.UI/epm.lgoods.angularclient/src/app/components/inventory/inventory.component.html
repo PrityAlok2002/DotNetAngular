@@ -1,0 +1,48 @@
+<form [formGroup]="inventoryForm" (ngSubmit)="onSubmit()">
+
+  <div>
+    <label for="minimumCartQuantity">Minimum Cart Quantity:</label>
+    <input id="minimumCartQuantity"
+           type="number"
+           formControlName="minimumCartQuantity"
+           (input)="onMinimumCartQuantityChange($event)"
+           min="1"
+           max="1000">
+    <div *ngIf="inventoryForm.get('minimumCartQuantity')?.invalid && inventoryForm.get('minimumCartQuantity')?.touched" class="error-message">
+      <small *ngIf="inventoryForm.get('minimumCartQuantity')?.errors?.['required']">Minimum Cart Quantity is required.</small>
+      <small *ngIf="inventoryForm.get('minimumCartQuantity')?.errors?.['invalidRange']">Value must be between 1 and 1000.</small>
+      <small *ngIf="inventoryForm.get('minimumCartQuantity')?.errors?.['minInvalid']">Minimum Cart Quantity must be less than Maximum Cart Quantity.</small>
+    </div>
+  </div>
+
+  <div>
+    <label for="maximumCartQuantity">Maximum Cart Quantity:</label>
+    <input id="maximumCartQuantity"
+           type="number"
+           formControlName="maximumCartQuantity"
+           (input)="onMaximumCartQuantityChange($event)"
+           min="1"
+           max="1000">
+    <div *ngIf="inventoryForm.get('maximumCartQuantity')?.invalid && inventoryForm.get('maximumCartQuantity')?.touched" class="error-message">
+      <small *ngIf="inventoryForm.get('maximumCartQuantity')?.errors?.['required']">Maximum Cart Quantity is required.</small>
+      <small *ngIf="inventoryForm.get('maximumCartQuantity')?.errors?.['invalidRange']">Value must be between 1 and 1000.</small>
+      <small *ngIf="inventoryForm.get('maximumCartQuantity')?.errors?.['maxInvalid']">Maximum Cart Quantity must be greater than Minimum Cart Quantity.</small>
+    </div>
+  </div>
+
+  <div>
+    <label for="quantityStep">Quantity Step:</label>
+    <input id="quantityStep"
+           type="number"
+           formControlName="quantityStep"
+           (input)="onQuantityStepChange($event)"
+           min="1"
+           max="10">
+    <div *ngIf="inventoryForm.get('quantityStep')?.invalid && inventoryForm.get('quantityStep')?.touched" class="error-message">
+      <small *ngIf="inventoryForm.get('quantityStep')?.errors?.['required']">Quantity Step is required.</small>
+      <small *ngIf="inventoryForm.get('quantityStep')?.errors?.['invalidRange']">Value must be between 1 and 10.</small>
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="inventoryForm.invalid">Save</button>
+</form>

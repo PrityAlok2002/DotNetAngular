@@ -1,0 +1,39 @@
+<div class="container">
+  <h2>Category Mapping</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <td colspan="4" class="add-row">
+          <button (click)="addCategoryMapping()" class="btn btn-add">Add Category</button>
+        </td>
+      </tr>
+      <tr>
+        <th>Category</th>
+        <!--<th>Is Featured Product?</th>
+        <th>Display Order</th>-->
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let mapping of categoryMappings; let i = index">
+        <select id="category" [(ngModel)]="selectedCategoryId" (change)="onCategorySelected()">
+          <option *ngFor="let category of categories" [value]="category.categoryId">
+            {{ category.categoryName }}
+          </option>
+        </select>
+        <!--<td>
+          <input type="checkbox" [(ngModel)]="mapping.isFeatured" class="checkbox-featured" />
+        </td>
+
+        <td>
+          <input type="number" [(ngModel)]="mapping.displayOrder" class="input-order" />
+        </td>-->
+        <td>
+          <button (click)="removeCategoryMapping(i)" class="btn btn-remove">Remove</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button (click)="saveMappings()" class="btn btn-save">submit</button>
+</div>

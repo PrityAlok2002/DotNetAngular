@@ -1,0 +1,29 @@
+<h2 class="one">Product Tag Mapping</h2>
+<div class="tag-mapping-container">
+  <div class="header-row">
+    <button class="btn btn-success" (click)="navigateToProductTag()">+ Add new</button>
+  </div>
+  <div class="tag-selector">
+    <div class="input-container" (click)="toggleDropdown($event)">
+      <span *ngFor="let tag of selectedTags" class="selected-tag">
+        {{ tag.tagName }}
+        <span class="remove-tag" (click)="removeTag(tag, $event)">&times;</span>
+      </span>
+      <input type="text"
+             [(ngModel)]="inputText"
+             (input)="handleInput()"
+             placeholder="Select or Type Tags"
+             [class.invalid-input]="invalidInput"
+             maxlength="50" />
+    </div>
+    <div *ngIf="invalidInput" class="error-message">
+      Please select a valid tag or clear the input.
+    </div>
+    <div class="autocomplete" *ngIf="showDropdown">
+      <div *ngFor="let tag of filteredTags" class="autocomplete-item" (click)="addTag(tag, $event)">
+        {{ tag.tagName }}
+      </div>
+    </div>
+  </div>
+  <button (click)="submitTags()" [disabled]="!canSubmitTags()">Submit Tags</button>
+</div>

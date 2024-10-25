@@ -1,0 +1,35 @@
+<div class="latest-orders">
+  <h3>Latest Orders</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Customer Id</th>
+        <th>Payment Method</th>
+        <th>Total Amount</th>
+        <th>Order Date</th>
+        <th>Order Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of latestOrders">
+        <td>{{ order.customerId }}</td>
+        <td>{{ order.paymentMethod }}</td>
+        <td>{{ order.totalAmount | currency:'INR' }}</td>
+        <td>{{ order.orderDate | date: 'short' }}</td>
+        <td>
+          <span class="order-status" [ngClass]="{
+            'awaiting': order.orderStatus === 'Pending',
+            'on-way': order.orderStatus === 'Shipped',
+            'confirmed': order.orderStatus === 'Completed',
+            'delivered': order.orderStatus === 'Delivered',
+            'cancelled': order.orderStatus === 'Cancelled'
+          }">
+            {{ order.orderStatus }}
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br /><br />
+

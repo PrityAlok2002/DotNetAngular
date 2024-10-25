@@ -1,0 +1,137 @@
+<div class="container">
+  <p class="form-title">Registration Form</p>
+
+  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="firstName">First Name:</label>
+      <input id="firstName" formControlName="firstName" type="text" maxlength="20" pattern="[a-zA-Z]*" />
+      <div *ngIf="registrationForm.get('firstName')?.invalid && registrationForm.get('firstName')?.touched">
+        <small *ngIf="registrationForm.get('firstName')?.errors?.['required']">First Name is required.</small>
+        <small *ngIf="registrationForm.get('firstName')?.errors?.['minlength']">First Name must be at least 3 characters.</small>
+        <small *ngIf="registrationForm.get('firstName')?.errors?.['maxlength']">First Name cannot exceed 20 characters.</small>
+        <small *ngIf="registrationForm.get('firstName')?.errors?.['pattern']">First Name must contain only letters.</small>
+      </div>
+    </div>
+
+    <div>
+      <label for="lastName">Last Name:</label>
+      <input id="lastName" formControlName="lastName" type="text" maxlength="20" pattern="[a-zA-Z]*" />
+      <div *ngIf="registrationForm.get('lastName')?.invalid && registrationForm.get('lastName')?.touched">
+        <small *ngIf="registrationForm.get('lastName')?.errors?.['required']">Last Name is required.</small>
+        <small *ngIf="registrationForm.get('lastName')?.errors?.['minlength']">Last Name must be at least 3 characters.</small>
+        <small *ngIf="registrationForm.get('lastName')?.errors?.['maxlength']">Last Name cannot exceed 20 characters.</small>
+        <small *ngIf="registrationForm.get('lastName')?.errors?.['pattern']">Last Name must contain only letters.</small>
+      </div>
+    </div>
+
+    <div>
+      <label for="email">Email:</label>
+      <input id="email" formControlName="email" type="email" />
+      <div *ngIf="registrationForm.get('email')?.invalid && registrationForm.get('email')?.touched">
+        <small *ngIf="registrationForm.get('email')?.errors?.['required']">Email is required.</small>
+        <small *ngIf="registrationForm.get('email')?.errors?.['invalidEmail']">Invalid Email Address.</small>
+        <small *ngIf="registrationForm.get('email')?.errors?.['emailExists']">Email already exists.</small>
+      </div>
+    </div>
+
+
+    <div class="password-wrapper">
+      <label for="password">Password</label>
+      <div class="password-container">
+        <input type="password" id="password" formControlName="password" [type]="passwordVisible ? 'text' : 'password'" />
+        <em class="password-toggle" (click)="togglePasswordVisibility('password')">
+          <em class="fa" [ngClass]="passwordVisible ? 'fa-eye' : 'fa-eye-slash'"></em>
+        </em>
+      </div>
+      <small *ngIf="registrationForm.get('password')?.invalid && registrationForm.get('password')?.touched">
+        Password must be 8-20 characters long and include one uppercase letter, one lowercase letter, one digit, and one special character.
+      </small>
+    </div>
+
+    <div class="password-wrapper">
+      <label for="confirmPassword">Confirm Password</label>
+      <div class="password-container">
+        <input type="password" id="confirmPassword" formControlName="confirmPassword" [type]="confirmPasswordVisible ? 'text' : 'password'" />
+        <em class="password-toggle" (click)="togglePasswordVisibility('confirmPassword')">
+          <em class="fa" [ngClass]="confirmPasswordVisible ? 'fa-eye' : 'fa-eye-slash'"></em>
+        </em>
+      </div>
+      <small *ngIf="passwordMismatch && registrationForm.get('confirmPassword')?.touched">
+        Password and Confirm Password do not match.
+      </small>
+    </div>
+
+    <div>
+      <label for="mobileNumber">Mobile Number:</label>
+      <input id="mobileNumber" formControlName="mobileNumber" type="text" maxlength="10" pattern="[6789][0-9]{9}*" />
+      <div *ngIf="registrationForm.get('mobileNumber')?.invalid && registrationForm.get('mobileNumber')?.touched">
+        <small *ngIf="registrationForm.get('mobileNumber')?.errors?.['required']">Mobile Number is required.</small>
+        <small *ngIf="registrationForm.get('mobileNumber')?.errors?.['maxlength']">Last Name cannot exceed 10 characters.</small>
+        <small *ngIf="registrationForm.get('mobileNumber')?.errors?.['pattern']">Invalid mobile number.</small>
+      </div>
+    </div>
+
+    <div>
+      <label>Account Type:</label>
+      <label>
+        <input type="radio" formControlName="accountType" value="Admin" />
+        Admin
+      </label>
+      <label>
+        <input type="radio" formControlName="accountType" value="Vendor" />
+        Vendor
+      </label>
+      <div *ngIf="registrationForm.get('accountType')?.invalid && registrationForm.get('accountType')?.touched">
+        <small *ngIf="registrationForm.get('accountType')?.errors?.['required']">Account Type is required.</small>
+      </div>
+    </div>
+    <br />
+
+    <div *ngIf="isVendor()">
+      <div>
+        <label for="businessName">Business Name:</label>
+        <input id="businessName" formControlName="businessName" type="text" maxlength="50" />
+        <div *ngIf="registrationForm.get('businessName')?.invalid && registrationForm.get('businessName')?.touched">
+          <small *ngIf="registrationForm.get('businessName')?.errors?.['required']">Business Name is required.</small>
+          <small *ngIf="registrationForm.get('businessName')?.errors?.['maxlength']">Business Name cannot exceed 50 characters.</small>
+        </div>
+      </div>
+
+      <div>
+        <label for="city">City:</label>
+        <input id="city" formControlName="city" type="text" maxlength="20" />
+        <div *ngIf="registrationForm.get('city')?.invalid && registrationForm.get('city')?.touched">
+          <small *ngIf="registrationForm.get('city')?.errors?.['required']">City is required.</small>
+          <small *ngIf="registrationForm.get('city')?.errors?.['maxlength']">City cannot exceed 20 characters.</small>
+        </div>
+      </div>
+
+      <div>
+        <label for="state">State:</label>
+        <input id="state" formControlName="state" type="text" maxlength="20" />
+        <div *ngIf="registrationForm.get('state')?.invalid && registrationForm.get('state')?.touched">
+          <small *ngIf="registrationForm.get('state')?.errors?.['required']">State is required.</small>
+          <small *ngIf="registrationForm.get('state')?.errors?.['maxlength']">State cannot exceed 20 characters.</small>
+        </div>
+      </div>
+
+      <div>
+        <label for="zipcode">ZIP Code:</label>
+        <input id="zipcode" formControlName="zipcode" type="text" maxlength="6" />
+        <div *ngIf="registrationForm.get('zipcode')?.invalid && registrationForm.get('zipcode')?.touched">
+          <small *ngIf="registrationForm.get('zipcode')?.errors?.['required']">ZIP Code is required.</small>
+          <small *ngIf="registrationForm.get('zipcode')?.errors?.['pattern']">ZIP Code must be exactly 6 digits.</small>
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="registrationForm.invalid">Register</button>
+    <div *ngIf="registrationSuccessful" class="success-message">
+      <p>Registration Successful!</p>
+    </div>
+  </form>
+
+  <div *ngIf="thankYouMessageVisible" class="thank-you-message">
+    <p>Thank you for registering!</p>
+  </div>
+</div>

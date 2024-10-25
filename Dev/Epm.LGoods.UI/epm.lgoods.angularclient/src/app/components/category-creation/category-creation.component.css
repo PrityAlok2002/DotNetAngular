@@ -1,0 +1,104 @@
+
+.container {
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+}
+
+.required-asterisk {
+  color: red;
+  font-size: 1.2em; /* Adjust size if needed */
+  margin-left: 5px;
+}
+
+
+
+input[type=file]::file-selector-button {
+  cursor: pointer;
+  border: 0;
+  padding: 8px;
+  background-color: rgb(86, 91, 92);
+  border-radius: 8px;
+  color: white;
+}
+
+  input[type=file]::file-selector-button:hover {
+    background-color: rgb(54, 61, 115);
+  }
+
+.create-button {
+  padding: 10px 20px;
+  font-size: 18px;
+  margin-top: 20px;
+  border-radius: 8px;
+  background-color: rgb(0,158,204)
+}
+
+#CategoryName,
+#Description {
+  width: 100%; /* Makes the input fields full-width within their container */
+}
+
+label {
+  font-size: 1.3em; /* Adjust size as needed */
+}
+
+.heading {
+  margin-top:10px;
+}
+
+.title{
+    margin-right:60px
+}
+.card-header {
+  background-color: rgb(157, 168, 168);
+}
+
+
+.success-snackbar {
+  background-color: #4caf50;
+  color: white;
+}
+
+.error-snackbar {
+  background-color: #f44336;
+  color: white;
+}
+
+.image-preview {
+  width: 150px;
+  height: 150px;
+}
+
+/* Tailwind CSS */
+.toggle-checkbox:checked + .toggle-label {
+  background-color: #4CAF50; /* Customize the color */
+}
+
+  .toggle-checkbox:checked + .toggle-label .toggle-active {
+    left: 0; /* Customize the position */
+    opacity: 1;
+  }
+
+  .toggle-checkbox:checked + .toggle-label .toggle-inactive {
+    opacity: 0;
+  }
+
+.toggle-checkbox:not(:checked) + .toggle-label .toggle-active {
+  opacity: 0;
+}
+
+.toggle-checkbox:not(:checked) + .toggle-label .toggle-inactive {
+  right: 0; /* Customize the position */
+  opacity: 1;
+}
+
+.toggle-label {
+  transition: background-color 0.2s ease-in;
+  position: relative;
+}
+
+.toggle-active, .toggle-inactive {
+  transition: opacity 0.2s ease-in-out;
+}
+

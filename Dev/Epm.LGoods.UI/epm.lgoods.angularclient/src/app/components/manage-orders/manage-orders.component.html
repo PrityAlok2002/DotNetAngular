@@ -1,0 +1,90 @@
+<div class="header-container">
+  <h3 class="headline">Manage Orders</h3>
+  <div class="sort-dropdown">
+    <button (click)="toggleSortOptions()">Sort By</button>
+    <div *ngIf="isSortOptionsOpen" class="sort-options">
+      <button (click)="sortOrders('Pending')">Pending</button>
+      <button (click)="sortOrders('Completed')">Completed</button>
+      <button (click)="sortOrders('Cancelled')">Cancelled</button>
+      <button (click)="sortOrders('Shipped')">Shipped</button>
+      <button (click)="sortOrders('Delivered')">Delivered</button>
+    </div>
+  </div>
+</div>
+<div class="table-responsive">
+  <table>
+    <thead>
+      <tr>
+        <th>Order Number</th>
+        <th>Customer Details</th>
+        <th>Shipment Details</th>
+        <th>Order Date</th>
+        <th>Order Status</th>
+        <th>Order Total</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of paginatedOrders">
+        <td><a [routerLink]="['/order', order.id]" class="no-underline">{{ order.id }}</a></td>
+        <td>
+          Name: {{ order.customerName }}<br>
+          Phone: {{ order.customerPhone }}
+        </td>
+        <td>
+          {{ order.houseNo }},
+          {{order.building}},
+          {{order.landmark}}<br>
+          Type:{{order.addressLabel}}
+        </td>
+        <td>{{ order.orderDate | date }}</td>
+        <td>{{ order.orderStatus }}</td>
+        <td>
+          {{ order.totalAmount | currency:'INR' }}<br> with {{order.paymentMethod}}
+        </td>
+        <td>
+          <div class="ellipsis" (click)="toggleOptions(order)">...</div>
+          <div *ngIf="order.isOptionsOpen" class="options-dropdown">
+            <div class="options-title">Order Status</div>
+            <div class="option-item" [class.enabled]="!isActionDisabled(order, 'Complete')">
+              <button (click)="updateOrderStatus(order, 'Completed')" [disabled]="isActionDisabled(order, 'Complete')">
+                <span class="icon-checkmark"></span>Complete
+              </button>
+            </div>
+            <div class="option-item" [class.enabled]="!isActionDisabled(order, 'Cancel')">
+              <button (click)="updateOrderStatus(order, 'Cancelled')" [disabled]="isActionDisabled(order, 'Cancel')">
+                <span class="icon-cancel"></span>Cancel
+              </button>
+            </div>
+            <div class="options-title">Shipping</div>
+            <div class="option-item" [class.enabled]="!isActionDisabled(order, 'Ship')">
+              <button (click)="updateOrderStatus(order, 'Shipped')" [disabled]="isActionDisabled(order, 'Ship')">
+                <span class="icon-ship"></span>Shipped
+              </button>
+            </div>
+            <div class="option-item" [class.enabled]="!isActionDisabled(order, 'Deliver')">
+              <button (click)="updateOrderStatus(order, 'Delivered')" [disabled]="isActionDisabled(order, 'Deliver')">
+                <span class="icon-deliver"></span>Delivered
+              </button>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="pagination-controls">
+  <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+  <span>Page {{ currentPage }}</span>
+  <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+  <div class="items-per-page-dropdown">
+    <label class="one" for="itemsPerPage">Items per page:</label>
+    <select id="itemsPerPage" (change)="changeItemsPerPage($event)">
+      <option *ngFor="let option of itemsPerPageOptions" [value]="option">
+        {{ option }}
+      </option>
+    </select>
+
+  </div>
+</div>

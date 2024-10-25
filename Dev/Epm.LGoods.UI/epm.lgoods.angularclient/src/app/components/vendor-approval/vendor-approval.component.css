@@ -1,0 +1,85 @@
+/* app.component.css */
+.container {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-family:'Museo Sans';
+}
+.full-width-container{
+    width:100%;
+    margin:0;
+    padding:0;
+
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.table {
+  
+  border-collapse: collapse;
+}
+
+  .table thead th {
+    background-color: #f1f1f1;
+    font-weight: bold;
+    text-align: left;
+    padding: 10px;
+    font-family:'Museo Sans';
+  }
+
+  .table tbody td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    font-family: 'Source Sans Pro';
+  }
+
+  .table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+.btn-success {
+  background-color: #67a300;
+  border-color: #67a300;
+  color: white;
+  margin-right: 5px;
+  border-radius: 0;
+  font-family: 'Museo Sans';
+}
+
+  .btn-success:disabled {
+    background-color: #a9dfbf;
+    border-color: #a9dfbf;
+  }
+
+.btn-danger {
+  background-color: #ff4242;
+  border-color: #ff4242;
+  color: white;
+  border-radius: 0;
+  font-family: 'Museo Sans';
+}
+
+  .btn-danger:disabled {
+    background-color: #f5b7b1;
+    border-color: #f5b7b1;
+  }
+
+.btn {
+  padding: 5px 15px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  color: #155724;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+}

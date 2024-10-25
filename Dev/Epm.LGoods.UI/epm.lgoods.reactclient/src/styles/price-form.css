@@ -1,0 +1,123 @@
+.price_form {
+  height: 100vh;
+}
+
+.price-form-container {
+    
+    padding: 20px;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 30%;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+.price-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+.price-form div {
+    margin-bottom: 15px;
+  }
+  
+.price-form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+.price-form input,
+.price-form select {
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .price-form input:focus,
+  .price-form select:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  .price-form .error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  
+  .price-form .success-message {
+    color: green;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .price-form .error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .submit-button {
+    padding: 12px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .submit-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .submit-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+
+  @media (min-width: 414px) {
+    .price-form-container{
+      max-width: 90%;
+    
+    }
+
+    /* .price-form-container h2{
+      font-size: large;
+      font-weight: bold;
+    
+    } */
+  }
+
+  @media (min-width: 576px) {
+    .price-form-container {
+      max-width: 80%;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .price-form-container {
+      max-width: 70%;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .price-form-container {
+      max-width: 60%;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .price-form-container {
+      max-width: 50%;
+    }
+  }

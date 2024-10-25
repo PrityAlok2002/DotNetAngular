@@ -1,0 +1,89 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  position: relative;
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  width: 500px;
+  max-width: 90%; 
+}
+
+.categoriesListContainer{
+  min-height: 80vh;
+}
+
+.topBarCategories {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  padding-left: 9.5%;
+  background-color: #f4f4f4;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 20px;
+}
+
+.categoriesHeader{
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+}
+
+.categoriesHeader h2{
+  font-weight: 600;
+}
+
+.categoryTable{
+  width: 60%;
+    margin: 30px auto;
+    border-collapse: collapse;
+    background: #f5f5f5; 
+    border: 2px solid #ddd;
+}
+
+.categoryTable th, .categoryTable td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.categoryTable th {
+  background-color: #f2f2f2;
+  color: #000;
+  font-weight: bold;
+}
+
+.categoryTable tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.categoryTable img {
+  width: 100px; 
+  height: auto;
+  border-radius: 5px;
+}
+
+.categoryTable .update-btn {
+  width: 70px; 
+  padding: 8px;
+  cursor: pointer;
+  color: #fff;
+  background-color: #28a745; /* Green */
+  border: none;
+  border-radius: 5px;
+  margin: 0 5px;
+  transition: background-color 0.3s;
+}
+

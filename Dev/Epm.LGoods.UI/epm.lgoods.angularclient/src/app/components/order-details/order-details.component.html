@@ -1,0 +1,80 @@
+<div *ngIf="order; else loading">
+  <div class="container">
+    <header class="order-header">
+      <h1>Order Details</h1>
+      <button (click)="onBack()" class="back-button">Back</button>
+    </header>
+
+    <div class="order-info">
+      <div class="info-item">
+        <span class="info-label">Order ID</span>
+        <span class="info-value">{{ order.orderId }}</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Customer Name</span>
+        <span class="info-value">{{ order.customerName }}</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Order Date</span>
+        <span class="info-value">{{ order.orderDate | date:'longDate' }}</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Payment Method</span>
+        <span class="info-value">{{ order.paymentMethod }}</span>
+      </div>
+    </div>
+
+    <div *ngIf="order.products && order.products.length > 0; else noProducts" class="product-list">
+      <h3>Products</h3>
+      <div *ngFor="let product of order.products" class="product-item">
+        <div class="product-image">
+          <img [src]="getMainImageUrl(product)" alt="Product Image" *ngIf="getMainImageUrl(product)">
+        </div>
+        <div class="product-details">
+          <div class="product-info">
+            <span class="product-label">Product Name</span>
+            <span class="product-value">{{ product.productName }}</span>
+          </div>
+          <div class="product-info">
+            <span class="product-label">Description</span>
+            <span class="product-value">{{ product.shortDescription }}</span>
+          </div>
+          <div class="product-info">
+            <span class="product-label">Quantity</span>
+            <span class="product-value">{{ product.quantity }}</span>
+          </div>
+          <div class="product-info">
+            <span class="product-label">Price</span>
+            <span class="product-value">{{ product.costPrice | currency:'INR' }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="total-amount">
+        <div class="total-item">
+          <span class="total-label">Tax :</span>
+          <span class="total-value">{{ order.tax }}</span>
+        </div>
+        <div class="total-item">
+          <span class="total-label">Delivery Fee :</span>
+          <span class="total-value">{{ order.deliveryFee }}</span>
+        </div>
+        <div class="total-item">
+          <span class="total-label">Total Amount :</span>
+          <span class="total-value">{{ order.totalAmount | currency:'INR' }}</span>
+        </div>
+      </div>
+
+    </div>
+
+    <ng-template #noProducts>
+      <p>No products in this order.</p>
+    </ng-template>
+  </div>
+</div>
+
+<ng-template #loading>
+  <div class="loading">
+    <p>Loading order details...</p>
+  </div>
+</ng-template>

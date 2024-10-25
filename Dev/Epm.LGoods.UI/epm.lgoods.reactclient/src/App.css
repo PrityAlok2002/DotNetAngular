@@ -1,0 +1,11 @@
+/* App.less */
+@import "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css";
+.App {
+  text-align: center;
+}
+.App .container {
+  margin-top: 50px;
+  min-height: 100vh;
+}
+/*# sourceMappingURL=App.css.map */
+

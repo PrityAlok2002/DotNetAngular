@@ -1,0 +1,201 @@
+/* Container Styling */
+/*.container {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}*/
+
+/* Heading Styling */
+/*h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}*/
+
+/* Table Styling */
+/*table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+th {
+  background-color: #f4f4f4;
+  text-align: left;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}*/
+
+/* Button Styling */
+/*.btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  color: white;
+}
+
+.btn-add {
+  background-color: #4CAF50;
+}
+
+.btn-remove {
+  background-color: #f44336;
+}
+
+.btn-save {
+  background-color: #4CAF50;
+}
+
+.btn-add:hover {
+  background-color: #45a049;
+}
+
+.btn-remove:hover {
+  background-color: #e53935;
+}
+
+.btn-save:hover {
+  background-color: #45a049;
+}*/
+
+/* Form Controls */
+/*.select-category {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+.input-order {
+  width: 60px;
+  padding: 4px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+.checkbox-featured {
+  width: 20px;
+  height: 20px;
+}*/
+
+
+
+
+
+
+/* General Styles */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Button Styles */
+.btn {
+  padding: 10px 15px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.btn-add {
+  background-color: #28a745;
+}
+
+.btn-remove {
+  background-color: #dc3545;
+}
+
+.btn-save {
+  background-color: #007bff;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+/* Layout Styles */
+.add-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+  .add-row button {
+    margin: 10px 0;
+  }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Form Control Styles */
+.select-category, .input-order {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.checkbox-featured {
+  margin: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .btn {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+
+  table {
+    font-size: 14px;
+  }
+
+  th, td {
+    padding: 10px;
+  }
+}

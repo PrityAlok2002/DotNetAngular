@@ -1,0 +1,79 @@
+<div class="container-fluid">
+  <div class="row align-items-center mb-3">
+    <div class="col-md-12 d-flex justify-content-between align-items-center">
+      <div class="title">Manufacturers</div>
+      <div>
+        <button class="btn btn-primary mr-2" (click)="toggleFilter()">
+          <em class="fa-solid fa-filter"></em>
+        </button>
+        <button class="btn btn-success" (click)="navigateToManufacturerDetails()">+ Add new</button>
+
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div *ngIf="showFilter" class="col-md-3 d-flex flex-column filter-section">
+      <div class="card flex-grow-1">
+        <div class="card-body">
+          <div class="form-group">
+            <label class="bold-label">Filter</label> <hr />
+            <label for="manufacturerName">Manufacturer name</label>
+            <input type="text" class="form-control" id="manufacturerName" [(ngModel)]="filter.manufacturerName" (input)="onInputChange()" minlength="1" maxlength="30" required>
+          </div>
+          <div class="form-group">
+            <label for="vendor">Vendor</label>
+            <select class="form-control" id="vendor" [(ngModel)]="filter.vendor" (change)="applyFilter()">
+              <option value="">Select Vendor</option>
+              <option *ngFor="let vendor of vendors" [value]="vendor">{{ vendor }}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div [ngClass]="{'col-md-9': showFilter, 'col-md-12': !showFilter}" class="table-responsive">
+      <table class="table table-hover ">
+        <thead>
+          <tr>
+            <th (click)="sortManufacturers('manufacturerName')">
+              Name
+              <span *ngIf="sortDirection['manufacturerName'] === 'asc'">&#9650;</span>
+              <span *ngIf="sortDirection['manufacturerName'] === 'desc'">&#9660;</span>
+            </th>
+            <th (click)="sortManufacturers('published')">
+              Published
+              <span *ngIf="sortDirection['published'] === 'asc'">&#9650;</span>
+              <span *ngIf="sortDirection['published'] === 'desc'">&#9660;</span>
+            </th>
+            <th (click)="sortManufacturers('displayOrder')">
+              Display Order
+              <span *ngIf="sortDirection['displayOrder'] === 'asc'">&#9650;</span>
+              <span *ngIf="sortDirection['displayOrder'] === 'desc'">&#9660;</span>
+            </th>
+            <th (click)="sortManufacturers('limitedToVendors')">
+              Limited to Vendors
+              <span *ngIf="sortDirection['limitedToVendors'] === 'asc'">&#9650;</span>
+              <span *ngIf="sortDirection['limitedToVendors'] === 'desc'">&#9660;</span>
+            </th>
+            <th (click)="sortManufacturers('createdOn')">
+              Created On
+              <span *ngIf="sortDirection['createdOn'] === 'asc'">&#9650;</span>
+              <span *ngIf="sortDirection['createdOn'] === 'desc'">&#9660;</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let manufacturer of filteredManufacturers">
+          <td>{{ manufacturer.manufacturerName }}</td>
+          <td>{{ manufacturer.published ? '✓' : '✗' }}</td>
+          <td>{{ manufacturer.displayOrder }}</td>
+          <td>{{ manufacturer.limitedToVendors }}</td>
+          <td>{{ manufacturer.createdOn | date }}</td>
+        </tr>
+        <tr *ngIf="filteredManufacturers.length === 0">
+          <td colspan="5" class="text-center">Not found</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

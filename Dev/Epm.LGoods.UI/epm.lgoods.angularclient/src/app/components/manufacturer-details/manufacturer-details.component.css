@@ -1,0 +1,145 @@
+
+
+/* Base styles for the container */
+.container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f0f1f5;
+}
+
+/* Styles for buttons */
+button {
+  background-color: transparent;
+  color: #000; /* Black text */
+  padding: 8px 16px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  display: inline-block;
+  margin-bottom: 20px; /* Add space below the button */
+}
+
+  button:hover {
+    background-color: #f8f9fa; /* Light grey */
+  }
+
+/* Form styles */
+form {
+  margin-top: 20px;
+}
+
+  form div {
+    margin-bottom: 16px;
+  }
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+input[type="file"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type="checkbox"] {
+  margin-top: 6px;
+}
+
+#manufacturerName, #description {
+  width: calc(100% - 16px); /* Adjust size of 'Name' and 'Description' input fields */
+  padding: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Submit button */
+button[type="submit"] {
+  background-color: #28a745; /* Green Background */
+  color: #fff; /* White text */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+  button[type="submit"]:hover {
+    background-color: #218838; /* Darker Green */
+  }
+
+/* Title */
+.title {
+  text-align: center;
+}
+
+/* Checkbox */
+#published {
+  width: 20px; /* Size of the checkbox */
+  height: 20px; /* Size of the checkbox */
+  cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+/* Error messages */
+small {
+  color: #e74c3c;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+
+    button[type="submit"] {
+      font-size: 14px;
+      padding: 8px 16px;
+    }
+
+  input[type="text"],
+  input[type="number"],
+  select {
+    padding: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    margin: 10px;
+    padding: 10px;
+  }
+
+  button {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+
+    button[type="submit"] {
+      font-size: 12px;
+      padding: 6px 12px;
+    }
+
+  input[type="text"],
+  input[type="number"],
+  select {
+    padding: 4px;
+  }
+}

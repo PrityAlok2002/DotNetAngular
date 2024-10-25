@@ -1,0 +1,6 @@
+@Epm.LGoods.ShippingService.API_HostAddress = http://localhost:5178
+
+GET {{Epm.LGoods.ShippingService.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

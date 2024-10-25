@@ -1,0 +1,93 @@
+<div class="product-tags-wrapper">
+  <div class="filter-icon" (click)="toggleFilter()">
+    <em class="fa fa-filter"></em> <!-- Adjust icon as needed -->
+  </div>
+
+  <div class="filter-container" [class.active]="filterOpen">
+    <h3>Filter</h3>
+    <div class="filter-item">
+      <label for="tagName">Tag Name</label>
+      <input type="text" id="tagName" [(ngModel)]="filter.tagName" (input)="validateFilterTagName($event)" maxlength="30" />
+    </div>
+    <div class="filter-item">
+      <label for="published">Published</label>
+      <select id="published" [(ngModel)]="filter.published">
+        <option value="Unspecified">Unspecified</option>
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+      </select>
+    </div>
+    <div class="filter-buttons">
+      <button class="apply-button" (click)="applyFilter()">Apply</button>
+      <button class="reset-button" (click)="resetFilter()">Reset</button>
+    </div>
+  </div>
+
+  <div class="product-tags-content">
+    <h2>Product Tags</h2>
+
+    <!-- Form to add new tags -->
+    <div class="add-tag-form">
+      <h3>Add New Tag</h3>
+      <div>
+        <label for="newTagName">Tag Name</label>
+        <input type="text" id="newTagName" [(ngModel)]="newTag.tagName" (input)="validateTagName($event)" maxlength="30" required #tagNameInput="ngModel" />
+        <div *ngIf="tagNameInput.invalid && (tagNameInput.dirty || tagNameInput.touched)" class="error-message">
+          Tag name must be alphanumeric and cannot exceed 30 characters.
+        </div>
+      </div>
+      <div>
+        <label for="newTaggedProducts">Tagged Products</label>
+        <input type="text" id="newTaggedProducts" (input)="validateTaggedProducts($event)" maxlength="10" required />
+      </div>
+      <div>
+        <label for="newPublished">Published</label>
+        <select id="newPublished" [(ngModel)]="newTag.published">
+          <option value="true">Yes</option>
+          <option value="false">No</option>
+        </select>
+      </div>
+      <button (click)="addTag()">Add Tag</button>
+    </div>
+
+    <div *ngIf="noDataFound" class="no-data-message">
+      No Data Found
+    </div>
+
+    <!-- Sorting control -->
+    <!-- Confirmation Popup -->
+    <div class="confirmation-popup" *ngIf="showConfirmPopup">
+      <div class="popup-content">
+        <h6>Are you sure you want to delete this tag?</h6>
+        <button class="confirm-button" (click)="confirmDelete()">Confirm</button>
+        <button class="cancel-button" (click)="cancelDelete()">Cancel</button>
+      </div>
+    </div>
+
+    <!-- Display tags in a table if data is available -->
+    <table *ngIf="!noDataFound">
+      <thead>
+        <tr>
+          <th>
+            Tag Name
+            <em class="fa" [ngClass]="{'fa-arrow-up': sortDirection === 'asc', 'fa-arrow-down': sortDirection === 'desc'}" (click)="toggleSort()"></em>
+          </th>
+          <th>Tagged Products</th>
+          <th>Published</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tag of tags">
+          <td>{{ tag.tagName }}</td>
+          <td>{{ tag.taggedProducts }}</td>
+          <td>{{ tag.published ? '✔' : '✘' }}</td>
+          <td>
+            <button *ngIf="tag.tagId !== undefined" (click)="showConfirmationPopup(tag.tagId)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

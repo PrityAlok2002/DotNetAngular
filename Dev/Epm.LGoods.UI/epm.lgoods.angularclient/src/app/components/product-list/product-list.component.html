@@ -1,0 +1,39 @@
+<div class="product-list-container">
+  <div class="top-bar">
+    <button class="filter-toggle-btn" (click)="toggleSidebar()">&#9776;</button>
+    <button class="create-btn" (click)="handlecreate()">Create New Product</button>
+  </div>
+
+  <app-product-filter *ngIf="showSidebar" (onApplyFilters)="applyFilters($event)" (closeSidebar)="closeSidebar()"></app-product-filter>
+  <h3>PRODUCT LIST</h3>
+  <table class="product-table">
+    <thead>
+      <tr>
+        <th>Product Name</th>
+        <th>Product Type</th>
+        <th>Country of Origin</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>
+          <a (click)="navigateToTagSelector(product.productId)" style="cursor: pointer; color: blue; text-decoration: underline;">
+            {{ product.productName }}
+          </a>
+        </td>
+        <td>{{ product.productType }}</td>
+        <td>{{ product.countryOfOrigin }}</td>
+        <td>
+          <button class="update-btn" (click)="handleUpdate(product.productId)">Update</button>
+          <button class="delete-btn" (click)="handleDelete(product.productId)">Delete</button>
+
+
+        </td>
+      </tr>
+      <tr *ngIf="!products || !products.length">
+        <td colspan="4">No products found</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

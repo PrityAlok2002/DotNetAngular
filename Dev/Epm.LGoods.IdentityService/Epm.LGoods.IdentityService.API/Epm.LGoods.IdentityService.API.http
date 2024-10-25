@@ -1,0 +1,6 @@
+@Epm.LGoods.IdentityService.API_HostAddress = http://localhost:5298
+
+GET {{Epm.LGoods.IdentityService.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

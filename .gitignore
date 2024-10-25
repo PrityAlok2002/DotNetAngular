@@ -1,0 +1,147 @@
+# ASP.NET Core
+
+bin/
+
+obj/
+
+*.dll
+
+*.pdb
+
+*.exe
+
+*.cache
+
+# Angular
+
+/dist/
+
+/node_modules/
+
+# Visual Studio Code
+
+.vscode/
+
+# Visual Studio
+
+.vs/
+
+*.suo
+
+*.ntvs*
+*.njsproj
+*.sln.docstates
+
+# IDE specific files
+.idea/
+.history/
+
+# User-specific files
+*.user
+
+
+# Dependency directories
+
+bower_components/
+
+jspm_packages/
+
+# Environment files
+
+.env
+
+.env.*
+
+# Log files
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Node modules
+node_modules/
+
+# Optional npm cache directory
+.npm/
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# Angular specific files
+.angular/
+.angular-cache/
+
+# TypeScript v1 declaration files
+typings/
+
+# Production
+dist/
+tmp/
+
+# Compiled output
+/out-tsc
+/integrationTest
+
+# Compiled JavaScript
+*.js
+*.jsx
+*.js.map
+
+# Compiled TypeScript
+*.tsbuildinfo
+
+# Coverage directory used by tools like istanbul
+coverage/
+
+# Miscellaneous
+/.build/
+.celerybeat-schedule
+lib-cov
+*.scssc
+*.pid
+
+
+# macOS
+
+.DS_Store
+ 
+# Windows
+
+Thumbs.db
+
+*.d.ts
+
+.scannerwork
+ehthumbs.db
+
+*.sw?
+
+Desktop.ini
+
+$RECYCLE.BIN/
+
+# Windows
+Thumbs.db
+ehthumbs.db
+*.sw?
+Desktop.ini
+$RECYCLE.BIN/
+package-lock.json
+ 
+/Dev/Epm.LGoods.UI/epm.lgoods.angularclient/src/app/services/vendor-details.service.spec.ts
+
+logs/
+
+*.d.ts
+
+.scannerwork

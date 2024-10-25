@@ -1,0 +1,309 @@
+:host {
+  display: flex;
+  flex-direction: column; /* Adjust to ensure content stacks properly on smaller screens */
+  height: 100vh;
+  overflow: auto; /* Ensure the host element can scroll */
+}
+
+/* Adjusting product tags wrapper to handle various screen sizes */
+.product-tags-wrapper {
+  position: relative;
+  width: 100%;
+  height: auto; /* Allow height to adjust dynamically */
+}
+
+/* Filter Icon */
+.filter-icon {
+  position: absolute;
+  top: 40px; /* Adjust according to your header height */
+  left: 230px; /* Ensure it's correctly aligned */
+  cursor: pointer;
+  font-size: 24px;
+  padding: 15px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 10; /* Ensure it stays above other elements */
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+  .filter-icon {
+    left: 20px; /* Adjust for medium-sized screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .filter-icon {
+    top: 60px; /* Adjust for smaller screens */
+    left: 10px; /* Ensure it's correctly aligned */
+  }
+}
+
+@media (max-width: 480px) {
+  .filter-icon {
+    top: 60px; /* Ensure it's correctly aligned */
+    left: 5px; /* Adjust for extra-small screens */
+    padding: 8px;
+    font-size: 20px;
+  }
+}
+
+/* Filter Container */
+.filter-container {
+  position: absolute;
+  top: 100px; /* Adjust according to your header height */
+  left: 0;
+  width: 250px;
+  height: calc(90vh - 120px); /* Adjust according to your header and footer height */
+  background: #f9f9f9;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 1;
+}
+
+  .filter-container.active {
+    transform: translateX(0);
+  }
+
+@media (max-width: 768px) {
+  .filter-container {
+    width: 200px; /* Adjust width for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .filter-container {
+    width: 100%; /* Full width on extra-small screens */
+    height: auto; /* Adjust height for smaller screens */
+    top: 60px; /* Adjust positioning */
+    padding: 10px;
+  }
+}
+
+.filter-item {
+  margin-bottom: 15px; /* Add margin between filter items */
+}
+
+  .filter-item label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+
+  .filter-item input,
+  .filter-item select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #fff; /* Ensuring input fields are visible */
+  }
+
+.filter-buttons {
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically on smaller screens */
+  gap: 10px; /* Add gap between buttons */
+  margin-top: 15px; /* Add margin to separate buttons from inputs */
+}
+
+@media (max-width: 768px) {
+  .filter-buttons {
+    flex-direction: row; /* Align buttons horizontally on medium screens */
+    flex-wrap: wrap; /* Allow wrapping of buttons if needed */
+  }
+}
+
+.apply-button {
+  background-color: #4CAF50; /* Apply button color */
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s; /* Smooth color transition */
+}
+
+  .apply-button:hover {
+    background-color: #45a049; /* Darker shade of green for hover */
+  }
+
+.reset-button {
+  background-color: #ff4d4d; /* Reset button color */
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s; /* Smooth color transition */
+}
+
+  .reset-button:hover {
+    background-color: #e60000; /* Darker shade of red for hover */
+  }
+
+.product-tags-content h2 {
+  text-align: center;
+}
+
+.product-tags-content {
+  flex: 1;
+  margin-left: 250px; /* Ensure this matches the filter container width */
+  padding: 20px;
+  overflow: auto;
+  position: relative; /* Ensure the filter icon is positioned relative to this container */
+}
+
+@media (max-width: 768px) {
+  .product-tags-content {
+    margin-left: 0; /* Adjust margin for smaller screens */
+  }
+}
+
+.add-tag-form {
+  margin-bottom: 20px;
+}
+
+  .add-tag-form h3 {
+    margin-bottom: 10px;
+  }
+
+  .add-tag-form div {
+    margin-bottom: 10px;
+  }
+
+  .add-tag-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+
+  .add-tag-form input,
+  .add-tag-form select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+    .add-tag-form input.ng-invalid.ng-dirty,
+    .add-tag-form select.ng-invalid.ng-dirty {
+      border-color: red; /* Red border for invalid inputs */
+    }
+
+  .add-tag-form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s; /* Smooth color transition */
+  }
+
+    .add-tag-form button:hover {
+      background-color: #45a049; /* Darker shade of green for hover */
+    }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+  table th,
+  table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+
+td button {
+  background-color: #ff4d4d;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Smooth color transition */
+}
+
+  td button:hover {
+    background-color: #e60000; /* Darker shade of red for hover */
+  }
+
+.no-data-message {
+  text-align: center;
+  font-size: 1.2em;
+  color: #666;
+}
+
+/* Style for confirmation popup */
+.confirmation-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-width: 90%; /* Ensure the popup content doesn't exceed viewport width */
+  width: 400px; /* Set a default width */
+}
+
+@media (max-width: 480px) {
+  .popup-content {
+    width: 90%; /* Full width on extra-small screens */
+  }
+}
+
+.confirm-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  margin-right: 10px;
+  transition: background-color 0.3s; /* Smooth color transition */
+}
+
+  .confirm-button:hover {
+    background-color: #45a049; /* Darker shade of green for hover */
+  }
+
+.cancel-button {
+  background-color: #ff4d4d;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s; /* Smooth color transition */
+}
+
+  .cancel-button:hover {
+    background-color: #e60000; /* Darker shade of red for hover */
+  }
+
+.error-message {
+  color: red; /* Red color for error messages */
+  font-size: 0.9em;
+}

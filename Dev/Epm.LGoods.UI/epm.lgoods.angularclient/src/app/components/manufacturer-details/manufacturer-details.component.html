@@ -1,0 +1,95 @@
+
+
+
+<div class="container">
+  <h3 class="title">Add Manufacturer</h3>
+  <button (click)="onBack()">Back</button>
+  <form [formGroup]="manufacturerForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="manufacturerName">Manufacturer Name</label>
+      <input id="manufacturerName"
+             formControlName="manufacturerName"
+             type="text"
+             (blur)="capitalizeFirstLetter()"
+             (input)="onInputChange($event)" />
+      <div *ngIf="manufacturerForm.get('manufacturerName')?.invalid && manufacturerForm.get('manufacturerName')?.touched">
+        <small *ngIf="manufacturerForm.get('manufacturerName')?.errors?.['required']">Manufacturer Name is required.</small>
+        <small *ngIf="manufacturerForm.get('manufacturerName')?.errors?.['pattern']">Name must only contain alphabets and spaces.</small>
+        <small *ngIf="manufacturerForm.get('manufacturerName')?.errors?.['capitalized']">Name must start with a capital letter.</small>
+        <small *ngIf="manufacturerForm.get('manufacturerName')?.errors?.['maxlength']">Name must be no longer than 30 characters.</small>
+      </div>
+    </div>
+
+    <div>
+      <label for="description">Description</label>
+      <input id="description"
+             formControlName="description"
+             type="text"
+             maxlength="300" />
+      <div *ngIf="manufacturerForm.get('description')?.invalid && manufacturerForm.get('manufacturerName')?.touched">
+        <small *ngIf="manufacturerForm.get('description')?.errors?.['required']">Description is required.</small>
+        <small *ngIf="manufacturerForm.get('description')?.errors?.['maxlength']">
+          Description must be no longer than 300 characters.
+        </small>
+      </div>
+</div>
+      
+
+    <div>
+      <label for="discounts">Discounts (%)</label>
+      <input id="discounts"
+             formControlName="discounts"
+             type="text"
+             (input)="onDiscountsChange($event)" />
+      <div *ngIf="manufacturerForm.get('discounts')?.invalid && manufacturerForm.get('discounts')?.touched">
+        <small *ngIf="manufacturerForm.get('discounts')?.errors?.['required']">Discounts are required.</small>
+        <small *ngIf="manufacturerForm.get('discounts')?.errors?.['pattern']">Discounts must be a valid number with up to 3 digits and up to 2 decimal places.</small>
+      </div>
+    </div>
+
+    <div>
+      <label for="limitedToVendors">Limited to Vendors</label>
+      <select id="limitedToVendors" formControlName="limitedToVendors">
+        <option *ngFor="let vendor of vendors" [value]="vendor.businessName">{{ vendor.businessName }}</option>
+      </select>
+      <div *ngIf="manufacturerForm.get('limitedToVendors')?.invalid && manufacturerForm.get('limitedToVendors')?.touched">
+        <small *ngIf="manufacturerForm.get('limitedToVendors')?.errors?.['required']">Limited to Vendors is required.</small>
+      </div>
+    </div>
+
+
+    <div>
+      <label for="displayOrder">Display Order</label>
+      <input id="displayOrder"
+             formControlName="displayOrder"
+             type="number"
+             min="1"
+             max="100"
+             step="1"
+             (input)="onDisplayOrderChange($event)" />
+      <div *ngIf="manufacturerForm.get('displayOrder')?.invalid && manufacturerForm.get('displayOrder')?.touched">
+        <small *ngIf="manufacturerForm.get('displayOrder')?.errors?.['required']">Display Order is required.</small>
+        <small *ngIf="manufacturerForm.get('displayOrder')?.errors?.['min']">Display Order must be at least 1.</small>
+        <small *ngIf="manufacturerForm.get('displayOrder')?.errors?.['max']">Display Order cannot be more than 100.</small>
+        <small *ngIf="manufacturerForm.get('displayOrder')?.errors?.['pattern']">Display Order must be a positive integer between 1 and 100.</small>
+      </div>
+    </div>
+
+
+
+
+    <div>
+      <label for="published">Published</label>
+      <input id="published" type="checkbox" formControlName="published" />
+    </div>
+
+    <div>
+      <label for="createdOn" style="display: none;">Created On</label>
+      <input id="createdOn" formControlName="createdOn" style="display: none;"/>
+    </div>
+
+    <button type="submit">Save</button>
+  </form>
+</div>
+
+

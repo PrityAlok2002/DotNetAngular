@@ -1,0 +1,39 @@
+<!-- src/app/components/vendor-approval/vendor-approval.component.html -->
+<div class="full-width-container mt-12">
+  <h2>Vendor Applications</h2>
+  <!-- Success message display -->
+  <div *ngIf="successMessage" class="alert alert-success" role="alert">
+    {{ successMessage }}
+  </div>
+  <!-- Error message display -->
+  <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+    {{ errorMessage }}
+  </div>
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th>Vendor Name</th>
+        <th>Email</th>
+        <th>Business Name</th>
+        <th>Registration Date</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let vendor of pendingVendors">
+        <td>{{ vendor.vendorName }}</td>
+        <td>{{ vendor.vendorEmail }}</td>
+        <td>{{ vendor.businessName }}</td>
+        <td>{{ vendor.formattedRegistrationDate }}</td>
+        <td>{{ vendor.status }}</td>
+        <td>
+          <button class="btn btn-success" (click)="approveVendor(vendor)" [disabled]="!isPending(vendor)">Approve</button>
+          <button class="btn btn-danger" (click)="rejectVendor(vendor)" [disabled]="!isPending(vendor)">Reject</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

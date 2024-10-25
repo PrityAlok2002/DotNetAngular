@@ -1,0 +1,13 @@
+<div class="sidebar">
+  <button class="close-btn" (click)="closeSidebar.emit()">&times;</button>
+  <h3>Apply Filters</h3>
+  <form>
+    <input name="productName" placeholder="Product Name" (change)="handleChange($event)" />
+    <input name="productType" placeholder="Product Type" (change)="handleChange($event)" />
+    <select name="countryOfOrigin" (change)="handleChange($event)">
+      <option value="">Select Country</option>
+      <option *ngFor="let country of countries" [value]="country">{{ country }}</option>
+    </select>
+    <button class="apply-btn" type="button" (click)="handleSubmit()">Apply</button>
+  </form>
+</div>

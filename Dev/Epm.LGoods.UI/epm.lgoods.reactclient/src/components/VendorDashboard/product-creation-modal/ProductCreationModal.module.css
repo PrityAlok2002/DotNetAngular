@@ -1,0 +1,102 @@
+.modalContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+   
+  h2{
+    font-family: Museo;
+  }
+   
+  /* Modal content area */
+  .modalContent {
+    background: #fff;
+    border-radius: 8px;
+    padding: 10px 25px;
+    width: 600px;
+    max-width: 80%;
+    position: relative;
+  }
+   
+  /* Close button */
+  .closeButton {
+    position: absolute;
+    top: 1%;
+    right: 4%;
+    cursor: pointer;
+    font-size: 40px;
+    color: #333;
+    font-weight: bold;
+  }
+   
+  /* Form fields */
+  .formGroup {
+    margin-bottom: 8px;
+  }
+   
+  .formLabel {
+    display: block;
+    margin-bottom: 1.5px;
+    font-weight: bold;
+  }
+   
+  .formInput {
+    width: 100%;
+    padding: 3px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+   
+  .formButton {
+    width: 60%;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+   
+  .formButton:hover {
+    background-color: #0056b3;
+    transition: 0.3s;
+  }
+   
+  .formGroupDate {
+    display: flex;
+    gap: 10%;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+   
+  .formGroupDate div {
+    width: 45%;
+  }
+   
+  .formGroupDimensions {
+    display: flex;
+    gap: 10%;
+    margin-bottom: 15px;
+  }
+   
+  .error {
+    color: red;
+    font-size: 12px;
+  }
+   
+  .required {
+    color: red;
+  }
+   
+  .icon:hover{
+    color: red;
+    cursor: pointer;
+    transition: 0.3s;
+  }

@@ -1,0 +1,21 @@
+<h3 class="headline">Shipments</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Order Number</th>
+      <th>Order Status</th>
+      <th>Date Shipped</th>
+      <th>Date Delivered</th>
+      <th>Order Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let shipment of shipments">
+      <td>{{ shipment.id }}</td>
+      <td>{{shipment.orderStatus }}</td>
+      <td>{{ shipment.dateShipped | date }}</td>
+      <td>{{ shipment.dateDelivered ? (shipment.dateDelivered | date) : 'Not Yet Delivered' }}</td>
+      <td>{{ shipment.orderDate |date}}</td>
+    </tr>
+  </tbody>
+</table>

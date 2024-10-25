@@ -1,0 +1,41 @@
+<div class="w-64 h-screen bg-white shadow-md">
+  <ul class="space-y-2 p-4">
+    <li>
+      <a href="/product-list" class="flex items-center p-2 text-gray-700 hover:text-blue-500 hover:bg-gray-100 rounded-md no-underline">
+        <em class="fa-solid fa-pen-to-square flex-shrink-0 w-6"></em>
+        <span class="ml-2">Product Info</span>
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="getLink('price')" [queryParams]="!productId ? { id: id } : null" class="flex items-center p-2 text-gray-700 hover:text-blue-500 hover:bg-gray-100 rounded-md no-underline">
+        <em class="fa-solid fa-indian-rupee-sign flex-shrink-0 w-6"></em>
+        <span class="ml-2">Price</span>
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="getLink('pictures')" [queryParams]="!productId ? { id: id } : null" class="flex items-center p-2 text-gray-700 hover:text-blue-500 hover:bg-gray-100 rounded-md no-underline">
+        <em class="fa-solid fa-image flex-shrink-0 w-6"></em>
+        <span class="ml-2">Pictures</span>
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="getLink('category-mapping')" [queryParams]="!productId ? { id: id } : null" class="flex items-center p-2 text-gray-700 hover:text-blue-500 hover:bg-gray-100 rounded-md no-underline">
+        <em class="fa-solid fa-code-branch flex-shrink-0 w-6"></em>
+        <span class="ml-2">Category mappings</span>
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="getLink('manufacturer-list')" [queryParams]="!productId ? { id: id } : null" class="flex items-center p-2 text-gray-700 hover:text-blue-500 hover:bg-gray-100 rounded-md no-underline">
+        <em class="fa-solid fa-warehouse flex-shrink-0 w-6"></em>
+        <span class="ml-2">Manufacturer mappings</span>
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="getLink('product-tag')" [queryParams]="!productId ? { id: id } : null" class="flex items-center p-2 text-gray-700 hover:text-blue-500 hover:bg-gray-100 rounded-md no-underline">
+        <em class="fa-solid fa-tag flex-shrink-0 w-6"></em>
+        <span class="ml-2">Product Tag Mapping</span>
+      </a>
+    </li>
+  </ul>
+</div>
+

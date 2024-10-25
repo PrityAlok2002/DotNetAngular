@@ -1,0 +1,75 @@
+.latest-orders {
+  width: 100%;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  font-family: Arial, sans-serif;
+}
+
+  .latest-orders h3 {
+    font-size: 1.8em;
+    text-align: center;
+    color: #333;
+    margin-bottom: 25px;
+    font-weight: 600;
+  }
+
+  .latest-orders table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+
+  .latest-orders th,
+  .latest-orders td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    font-size: 1.1em;
+    color: #555;
+    word-wrap: break-word;
+  }
+
+  .latest-orders th {
+    background-color: #f7f7f7;
+    color: #555;
+    font-weight: 600;
+  }
+
+  .latest-orders tr:hover {
+    background-color: #f1f1f1;
+  }
+
+  .latest-orders .order-status {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 0.9em;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-align: center;
+    min-width: 160px;
+  }
+
+  .latest-orders .awaiting {
+    background-color: #f0ad4e;
+  }
+
+  .latest-orders .on-way {
+    background-color: #5bc0de;
+  }
+
+  .latest-orders .confirmed {
+    background-color: #5cb85c;
+  }
+
+  .latest-orders .delivered {
+    background-color: #0275d8;
+  }
+
+  .latest-orders .cancelled {
+    background-color: #d9534f;
+  }

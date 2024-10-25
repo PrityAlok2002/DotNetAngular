@@ -1,0 +1,132 @@
+header {
+  background-color: #303240;
+  color: white;
+  padding: 2px;
+  margin: 0;
+  width: 100%;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  padding: 0 1rem; 
+  flex-wrap: wrap; 
+}
+
+nav .logo {
+    height: 80px; 
+    margin-right: 1rem;
+  }
+
+  nav a {
+    color: rgb(222, 213, 213);
+    margin: 0 1rem;
+    text-decoration: none;
+  }
+
+  .manage-product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 5px;
+    color: #333;
+    cursor: pointer;
+}
+
+
+.right-icons {
+  margin-left: auto;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+}
+
+  .right-icons a {
+    margin-left: 1rem;
+  }
+
+
+@keyframes shake {
+  0%, 100% {
+    transform: rotate(0);
+  }
+
+  25% {
+    transform: rotate(-10deg);
+  }
+
+  50% {
+    transform: rotate(10deg);
+  }
+
+  75% {
+    transform: rotate(-10deg);
+  }
+}
+
+.shake {
+  animation: shake 0.5s infinite;
+}
+
+
+.left-section {
+display: flex;
+align-items: center;
+justify-content: center;
+width: 15%;
+justify-content: space-between;
+}
+
+.logo {
+height: 50px; 
+margin-right: 20px;
+}
+
+.right-icons {
+display: flex;
+align-items: center;
+margin-left: auto;
+}
+
+.right-icons em, .right-icons a {
+margin-left: 20px;
+font-size: 24px;
+} 
+
+.catalog-main{
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.catalog-main-ul, .dropdown {
+list-style: none;
+padding-left: 0;
+}
+.catalog-main-ul li {
+cursor: pointer;
+}
+
+.dropdown {
+display: block;
+position: absolute;
+background-color: #f9f9f9;
+min-width: 160px;
+box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+z-index: 1;
+}
+
+.dropdown li {
+border: 1px solid #c5c0c0;
+}
+
+.dropdown .dropdown-item {
+color: black;
+padding: 12px 16px;
+text-decoration: none;
+/* display: block; */
+}
+/* 
+.dropdown .dropdown-item:hover {
+background-color: #f1f1f1;
+} */

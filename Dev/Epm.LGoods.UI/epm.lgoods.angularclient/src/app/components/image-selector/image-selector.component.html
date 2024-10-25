@@ -1,0 +1,32 @@
+
+<div *ngIf="isOpen" class="fixed inset-0 flex items-center justify-center z-50 overflow-auto">
+  <div class="fixed inset-0 bg-black opacity-50" (click)="close()"></div>
+  <div class="relative bg-white rounded-lg shadow-lg w-full max-w-full mx-4 md:mx-auto z-10 p-4 max-h-[90vh] overflow-y-auto">
+    <div class="flex justify-between items-center border-b pb-2 mb-4">
+      <h5 class="text-xl font-semibold">Select Images</h5>
+      <button (click)="close()" class="text-gray-500 hover:text-gray-700">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+    <div class="mb-4">
+      <div class="flex justify-end space-x-2">
+        <input id="input-file" type="file" (change)="onFileSelected($event)" multiple class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border file:border-gray-300 file:text-sm file:font-semibold file:bg-gray-100 hover:file:bg-gray-200" />
+        <button id="ok-button" (click)="confirmSelection()" class="px-4 py-2 bg-blue-500 rounded text-white">OK</button>
+      </div>
+    </div>
+    <div class="grid grid-cols-5 gap-2 mb-4">
+      <div *ngFor="let image of images" (click)="toggleSelection(image)" class="relative cursor-pointer">
+        <img [src]="image.imageUrl || image.image" alt="Image" id="images" class="w-100 h-60 object-cover rounded-md border" [class.border-blue-500]="selectedImages.includes(image)" />
+        <div *ngIf="selectedImages.includes(image)" class="absolute inset-0 bg-blue-500 opacity-50 rounded-md"></div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+
+
+
+

@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Azure.Storage.Blobs" Version="12.21.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Epm.LGoods.ProductManagement.Core\Epm.LGoods.ProductManagement.Core.csproj" />
+    <ProjectReference Include="..\Epm.LGoods.ProductManagement.Infrastructure\Epm.LGoods.ProductManagement.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Epm.LGoods.ProductManagement.API">
+      <HintPath>..\Epm.LGoods.ProductManagement.API\obj\Debug\net8.0\Epm.LGoods.ProductManagement.API.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

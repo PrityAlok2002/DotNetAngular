@@ -1,0 +1,6 @@
+@Epm.LGoods.OrderManagement.API_HostAddress = http://localhost:5246
+
+GET {{Epm.LGoods.OrderManagement.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

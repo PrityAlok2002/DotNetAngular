@@ -1,0 +1,319 @@
+.header-container {
+  position: relative; /* Make this container a positioned element */
+  padding-right: 150px; /* Add padding to accommodate the dropdown */
+}
+
+.headline {
+  margin: 0; /* Remove default margin */
+  text-align: center; /* Center text */
+}
+
+.sort-dropdown {
+  position: absolute; /* Position absolutely within the container */
+  top: 0; /* Align to the top of the container */
+  right: 0; /* Align to the right of the container */
+}
+
+  .sort-dropdown button {
+    background-color: #007bff; /* Background color */
+    color: white; /* Text color */
+    border: 1px solid #007bff; /* Border color */
+    border-radius: 2px; /* Rounded corners */
+    font-size: 15px; /* Smaller font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s, border-color 0.3s; /* Smooth color transition */
+    padding: 5px 6px; /* Reduced padding */
+    margin: 2px; /* Optional: small margin to separate from other elements */
+    height: 30px; /* Fixed height for consistency */
+    line-height: 20px; /* Align text vertically */
+    text-align: center; /* Center text horizontally */
+    display: inline-flex; /* Flexbox for alignment */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+  }
+
+
+    .sort-dropdown button:hover {
+      background-color: #0056b3; /* Darker background on hover */
+      border-color: #0056b3; /* Darker border on hover */
+    }
+
+.sort-options {
+  position: absolute;
+  top: 100%; /* Position dropdown directly below the button */
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  min-width: 120px; /* Ensure dropdown has a minimum width */
+  max-width: 150px; /* Limit the maximum width of the dropdown */
+  max-height: 300px; /* Limit the height of the dropdown */
+  overflow-y: auto; /* Add vertical scrollbar if content overflows */
+  padding: 5px; /* Reduce padding */
+}
+
+  .sort-options button {
+    display: block;
+    width: 100%;
+    /* Adjust padding for smaller buttons */
+    border: none;
+    background: white;
+    text-align: left;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333; /* Dark text color */
+  }
+
+    .sort-options button:hover {
+      background: #f2f2f2; /* Light gray background on hover */
+    }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.no-underline {
+  text-decoration: none;
+}
+
+
+th, td {
+  border: 2px solid #ddd;
+  padding: 6px;
+  font-size: 14px;
+  font-family: var(--uui-font);
+  width: 100px;
+  height: 50px;
+  padding-left: 40px;
+  background-color: #f0f1f5; /* Replace with the content color from the image */
+  color: black; /* Assuming black text color for content */
+}
+
+th {
+  background-color: #3e4a72; /* Replace with the header color from the image */
+  color: white; /* Assuming white text color for better readability */
+  text-align: left;
+}
+
+button {
+  margin: 5px;
+}
+
+.options-dropdown {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 10px;
+  z-index: 1000;
+}
+
+  .options-dropdown button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    margin: 5px 0;
+  }
+
+  .options-dropdown hr {
+    margin: 5px 0;
+    border: none;
+    border-top: 1px solid #ddd;
+  }
+
+.option-item {
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
+}
+
+  .option-item button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 5px;
+    font-size: 14px;
+    color: #333;
+  }
+
+  .option-item .enabled {
+    background-color: #e0f7fa; /* Highlight color */
+  }
+
+  .option-item .icon-checkmark::before {
+    content: "\2714"; /* Unicode for checkmark */
+    margin-right: 10px;
+    color: green;
+  }
+
+  .option-item .icon-cancel::before {
+    content: "\2716"; /* Unicode for cross mark */
+    margin-right: 10px;
+    color: red;
+  }
+
+  .option-item .icon-ship::before {
+    content: "\1F69A"; /* Unicode for truck */
+    margin-right: 10px;
+  }
+
+  .option-item .icon-deliver::before {
+    content: "\1F4E6"; /* Unicode for package */
+    margin-right: 10px;
+  }
+
+hr {
+  margin: 10px 0;
+  border: none;
+  border-top: 1px solid #ccc;
+}
+
+.order-details {
+  padding: 10px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+  margin-top: 10px;
+}
+
+  .order-details h3 {
+    margin-top: 0;
+  }
+
+.ellipsis {
+  cursor: pointer;
+  font-size: 30px;
+  color: #333;
+  width: 20px;
+  text-align: center;
+  display: inline-block;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+.pagination-controls {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.options-dropdown {
+  display: flex;
+  flex-direction: column;
+}
+
+.option-item {
+  margin-bottom: 5px;
+}
+
+  .option-item.enabled button {
+    background-color: #4CAF50; /* Green background for enabled buttons */
+    color: white; /* White text for enabled buttons */
+  }
+
+  .option-item button {
+    background-color: #f1f1f1; /* Grey background for disabled buttons */
+    color: #888; /* Grey text for disabled buttons */
+    border: none;
+    padding: 5px 10px;
+    text-align: left;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+  }
+
+    .option-item button:disabled {
+      cursor: not-allowed;
+    }
+
+.icon-deliver {
+  font-size: 10px;
+}
+
+.success-message {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  text-align: center;
+  width: 262px;
+  margin-left: 567px;
+}
+
+.one {
+  margin: 10px;
+}
+
+.modal {
+  display: block;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+  .modal-content button {
+    float: right;
+    margin-top: 10px;
+  }
+
+.small-button {
+  padding: 4px 8px;
+  font-size: 16px;
+  border-radius: 2px;
+  width: 55px;
+  height: 35px;
+  margin-left: 530px;
+  background-color: #007bff;
+  color: white;
+  border: 1px solid #007bff;
+  outline: none; /* Remove any outline */
+}
+
+.pagination-controls {
+  display: flex; /* Ensure it uses flex display */
+  align-items: center; /* Align items vertically */
+  justify-content: center; /* Center items horizontally if needed, or use 'space-between' for spacing */
+  flex-wrap: nowrap; /* Prevent wrapping of items */
+}
+
+
+  .pagination-controls button {
+    background-color: #007bff; /* blue */
+    color: white;
+    border: 2px solid transparent;
+    padding: 6px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+
+    .pagination-controls button:hover {
+      background-color: #0056b3; /* darker blue */
+      border-color: #004088;
+    }
+
+    .pagination-controls button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+
+.two {
+  border: 2px solid;
+}

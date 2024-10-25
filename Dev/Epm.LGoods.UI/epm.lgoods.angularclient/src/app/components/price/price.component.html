@@ -1,0 +1,72 @@
+<div class="price-form-container">
+  <form [formGroup]="priceForm" (ngSubmit)="onSubmit()" class="price-form">
+    <div>
+    <label for="priceAmount">Price</label>
+    <input 
+      id="priceAmount" 
+      formControlName="priceAmount" 
+      type="text" 
+      (input)="limitPriceAmount($event)" 
+      placeholder="Enter price" 
+    />
+    <div *ngIf="priceForm.get('priceAmount')?.invalid && priceForm.get('priceAmount')?.touched">
+      <small class="error" *ngIf="priceForm.get('priceAmount')?.errors?.['required']">Price is required.</small>
+      <small class="error" *ngIf="priceForm.get('priceAmount')?.errors?.['pattern']">Invalid price format.</small>
+    </div>
+  </div>
+
+    <div>
+      <label for="currency">Currency</label>
+      <select id="currency" formControlName="currency">
+        <option value="INR">INR</option>
+        <option value="USD">USD</option>
+      </select>
+      <div *ngIf="priceForm.get('currency')?.invalid && priceForm.get('currency')?.touched">
+        <small class="error" *ngIf="priceForm.get('currency')?.errors?.['required']">Currency is required.</small>
+      </div>
+    </div>
+
+    <div>
+      <label for="discountPercentage">Discount Percentage</label>
+      <input id="discountPercentage" formControlName="discountPercentage" type="text" (input)="limitDiscountPercentage($event)" maxlength="3" />
+      <div *ngIf="priceForm.get('discountPercentage')?.invalid && priceForm.get('discountPercentage')?.touched">
+        <small class="error" *ngIf="priceForm.get('discountPercentage')?.errors?.['required']">Discount Percentage is required.</small>
+        <small class="error" *ngIf="priceForm.get('discountPercentage')?.errors?.['min']">Discount Percentage must be at least 0.</small>
+        <small class="error" *ngIf="priceForm.get('discountPercentage')?.errors?.['max']">Discount Percentage cannot exceed 100.</small>
+        <small class="error" *ngIf="priceForm.get('discountPercentage')?.errors?.['pattern']">Discount Percentage must be a number up to 3 digits.</small>
+      </div>
+    </div>
+
+    <div>
+      <label for="effectivePrice">Effective Price</label>
+      <input id="effectivePrice" formControlName="effectivePrice" type="number" />
+    </div>
+
+    <div>
+      <label for="productId">Product ID</label>
+      <input id="productId" formControlName="productId" type="text" maxlength="10" (input)="limitProductId($event)" />
+      <div *ngIf="priceForm.get('productId')?.invalid && priceForm.get('productId')?.touched">
+        <small class="error" *ngIf="priceForm.get('productId')?.errors?.['required']">Product ID is required.</small>
+        <small class="error" *ngIf="priceForm.get('productId')?.errors?.['pattern']">Product ID must be a number up to 10 digits.</small>
+      </div>
+    </div>
+
+    <div>
+      <label for="vendorId">Vendor ID</label>
+      <input id="vendorId" formControlName="vendorId" type="text" maxlength="10" (input)="limitVendorId($event)" />
+      <div *ngIf="priceForm.get('vendorId')?.invalid && priceForm.get('vendorId')?.touched">
+        <small class="error" *ngIf="priceForm.get('vendorId')?.errors?.['required']">Vendor ID is required.</small>
+        <small class="error" *ngIf="priceForm.get('vendorId')?.errors?.['pattern']">Vendor ID must be a number up to 10 digits.</small>
+      </div>
+    </div>
+
+    <div *ngIf="successMessage" class="success-message">
+      {{ successMessage }}
+    </div>
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+
+    <button type="submit" class="submit-button" [disabled]="priceForm.invalid">Save</button>
+  </form>
+</div>

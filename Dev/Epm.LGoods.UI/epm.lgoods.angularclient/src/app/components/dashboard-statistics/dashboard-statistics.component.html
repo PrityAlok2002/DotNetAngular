@@ -1,0 +1,27 @@
+<div class="statistics">
+  <h3><b>Statistics</b></h3>
+  <div class="stat-item">
+    <div class="score-circle" [style.borderColor]="getScoreColor(statistics.totalProducts)">
+      <span>{{ statistics.totalProducts }}</span>
+    </div>
+    <span class="score-label">Products</span>
+  </div>
+  <div class="stat-item">
+    <div class="score-circle" [style.borderColor]="getScoreColor(statistics.totalCategories)">
+      <span>{{ statistics.totalCategories }}</span>
+    </div>
+    <span class="score-label">Categories</span>
+  </div>
+  <div class="stat-item">
+    <div class="score-circle" [style.borderColor]="getScoreColor(statistics.totalTags)">
+      <span>{{ statistics.totalTags }}</span>
+    </div>
+    <span class="score-label">Tags</span>
+  </div>
+  <div class="stat-item">
+    <div class="score-circle" [style.borderColor]="getScoreColor(statistics.totalImages)">
+      <span>{{ statistics.totalImages }}</span>
+    </div>
+    <span class="score-label">Images</span>
+  </div>
+</div>

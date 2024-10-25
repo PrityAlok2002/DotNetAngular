@@ -1,0 +1,17 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: var(--uui-font); /* Use the defined custom font */
+}
+
+/* Ensure main container takes full height */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Flex-grow content to fill remaining space */
+.content {
+  flex: 1;
+}

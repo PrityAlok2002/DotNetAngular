@@ -1,0 +1,256 @@
+body {
+  background-color: #f0f1f5;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 60%;
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Order Header */
+.order-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+  .order-header h1 {
+    margin: 0;
+    font-size: 32px;
+    color: #333;
+    font-weight: bold;
+  }
+
+.back-button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #3e4a72;
+  color: white;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 10px;
+}
+
+  .back-button:hover {
+    background-color: darkgrey;
+  }
+
+/* Order Information */
+.order-info {
+  margin-bottom: 20px;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+  font-size: 15px;
+}
+
+.info-label {
+  font-weight: bold;
+  color: #444;
+}
+
+.info-value {
+  color: #666;
+}
+
+.product-list {
+  margin-top: 20px;
+}
+
+  .product-list h3 {
+    margin-bottom: 15px;
+    font-size: 20px;
+    color: #333;
+    font-weight: bold;
+  }
+
+.product-item {
+  display: flex;
+  align-items: flex-start; /* Align items to the start */
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  background-color: #fff;
+}
+
+.product-image {
+  max-width: 150px;
+  margin-right: 20px;
+}
+
+  .product-image img {
+    width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
+.product-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-info {
+  display: flex;
+  justify-content: space-between; /* Align label and value to the edges */
+  padding: 5px 0;
+}
+
+.product-label {
+  font-weight: bold;
+  color: #555;
+  flex: 1; /* Allow label to take up available space */
+  text-align: left; /* Align label text to the left */
+  min-width: 150px; /* Ensure labels have consistent starting position */
+}
+
+.product-value {
+  color: #777;
+  flex: 1; /* Allow value to take up available space */
+  text-align: right; /* Align value text to the right */
+}
+
+
+
+
+.total-amount {
+  font-size: 16px;
+  color: #333;
+  padding: 10px;
+  border-radius: 4px;
+  background: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow */
+  margin-top: 20px; /* Space above total amount */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Align content to the right */
+}
+
+.total-item {
+  display: flex;
+  width: 100%; /* Take up full width */
+  justify-content: space-between; /* Space between label and value */
+  margin-bottom: 10px; /* Space between items */
+}
+
+.total-label {
+  font-weight: bold;
+  color: #555;
+  white-space: nowrap; /* Prevent text from wrapping */
+  text-align: right; /* Align label text to the right */
+  min-width: 150px; /* Minimum width to ensure alignment */
+}
+
+.total-value {
+  color: #333;
+  text-align: right; /* Align value text to the right */
+  flex: 1; /* Allow the value to take up remaining space */
+}
+
+
+/* Loading */
+.loading {
+  text-align: center;
+  padding: 20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .container {
+    width: 70%;
+  }
+
+  .order-header h1 {
+    font-size: 28px;
+  }
+
+  .back-button {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+
+  .total-amount {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 85%;
+  }
+
+  .order-header {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: center;
+  }
+
+  .back-button {
+    position: static;
+    margin: 10px 0;
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  .order-header h1 {
+    font-size: 24px;
+  }
+
+  .product-item {
+    flex-direction: column;
+  }
+
+  .product-image {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .total-amount {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 90%;
+  }
+
+  .order-header h1 {
+    font-size: 20px;
+  }
+
+  .back-button {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .product-item {
+    padding: 8px;
+  }
+
+  .total-amount {
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,169 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+header {
+  background-color: #303240;
+  color: white;
+  padding: 2px;
+  margin: 0;
+  width: 100%;
+  top: 0;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  padding: 0 1rem; 
+  position: relative; 
+}
+
+  nav .logo {
+    width: 100px;
+    height: 80px; 
+    margin-right: 1rem;
+  }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+  }
+
+.right-icons {
+  margin-left: auto; 
+  display: flex;
+  align-items: center;
+}
+
+  .right-icons a {
+    margin-left: 1rem;
+  }
+
+.sales-menu {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  position: relative;
+  margin: 0 1rem; 
+}
+
+  .sales-menu em {
+    font-size: 17px; 
+  }
+
+  .sales-menu span {
+    margin-top: 2px; 
+    font-size: 13px; 
+  }
+
+.sales-menu {
+  position: relative;
+}
+
+  .sales-menu:hover .sales-dropdown,
+  .sales-menu:focus-within .sales-dropdown {
+    display: block;
+  }
+
+.sales-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  color: #000;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  min-width: auto; 
+  width: auto; 
+  white-space: nowrap; 
+}
+
+.sales-menu:hover .sales-dropdown,
+.sales-menu:focus-within .sales-dropdown {
+  display: block;
+}
+
+.sales-dropdown li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+  .sales-dropdown li:last-child {
+    border-bottom: none;
+  }
+
+  .sales-dropdown li a {
+    color: black;
+    text-decoration: none;
+  }
+
+    .sales-dropdown li a:hover {
+      background-color: #f0f0f0;
+    }
+
+.dashboard-menu {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  position: relative; 
+  margin: 0 1rem;
+  margin-left: 160px;
+
+}
+
+.dashboard-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+}
+
+.dashboard-icon {
+  font-size: 17px;
+  margin-bottom: 2px; 
+}
+
+.dashboard-text {
+  font-size: 13px; 
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column; 
+    align-items: flex-start; 
+  }
+
+    nav .logo {
+      margin-bottom: 1rem; 
+    }
+
+  .right-icons {
+    margin-left: 0;
+    margin-top: 1rem; 
+  }
+
+  .sales-menu,
+  .dashboard-menu {
+    margin: 0.5rem 0; 
+  }
+
+    .sales-menu em,
+    .dashboard-icon {
+      font-size: 15px; 
+    }
+
+    .sales-menu span,
+    .dashboard-text {
+      font-size: 12px; 
+    }
+}

@@ -1,0 +1,50 @@
+<div class="container-fluid">
+  <div class="row align-items-center mb-3">
+    <div class="col-md-12 d-flex justify-content-between align-items-center">
+      <div class="title">Low Stock Products</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th (click)="sortProducts('productName')">
+              Product Name
+              <span *ngIf="sortDirection['productName'] === 'asc'">&#9650;</span>
+              <span *ngIf="sortDirection['productName'] === 'desc'">&#9660;</span>
+            </th>
+            <th (click)="sortProducts('stockQuantity')">
+              Stock Quantity
+              <span *ngIf="sortDirection['stockQuantity'] === 'asc'">&#9650;</span>
+              <span *ngIf="sortDirection['stockQuantity'] === 'desc'">&#9660;</span>
+            </th>
+            <th (click)="sortProducts('mfgDate')">
+              Manufactured Date
+              <span *ngIf="sortDirection['mfgDate'] === 'asc'">&#9650;</span>
+              <span *ngIf="sortDirection['mfgDate'] === 'desc'">&#9660;</span>
+            </th>
+            <th (click)="sortProducts('expiryDate')">
+              Expiry Date
+              <span *ngIf="sortDirection['expiryDate'] === 'asc'">&#9650;</span>
+              <span *ngIf="sortDirection['expiryDate'] === 'desc'">&#9660;</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of lowStockProducts">
+            <td>{{ product.productName }}</td>
+            <td [ngClass]="{'text-danger': product.stockQuantity < 25}">
+              {{ product.stockQuantity }}
+            </td>
+            <td>{{ product.mfgDate | date:'MM/dd/yyyy' }}</td>
+            <td>{{ product.expiryDate | date:'MM/dd/yyyy' }}</td>
+          </tr>
+          <tr *ngIf="lowStockProducts.length === 0">
+            <td colspan="4" class="text-center">No low stock products found</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

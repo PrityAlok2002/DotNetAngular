@@ -1,0 +1,174 @@
+<div class="container py-5 responsive-form main-content darkBackground" id="mainContent">
+  <h2 id="heading">{{ isEditMode ? 'Update Product' : 'Create New Product' }}</h2>
+  <br>
+
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+
+    <!-- Product Name -->
+    <div class="form-group">
+      <label for="pname">Product Name</label>
+      <input id="pname" formControlName="productName" class="form-control" required
+             pattern="^[a-zA-Z0-9 ]*$" title="Product Name can only contain letters, numbers, and spaces."
+             (input)="restrictSpecialCharacters($event)" />
+      <div *ngIf="productForm.get('productName')?.invalid && productForm.get('productName')?.touched">
+        <div *ngIf="productForm.get('productName')?.errors?.['required']" class="error-message">
+          Product Name is required.
+        </div>
+        <div *ngIf="productForm.get('productName')?.errors?.['maxlength']" class="error-message">
+          Product Name cannot exceed 50 characters.
+        </div>
+      </div>
+    </div>
+
+    <!-- Product Type -->
+    <div class="form-group">
+      <label for="ptype">Product Type:</label>
+      <input type="text" id="ptype" formControlName="productType" name="ptype" class="form-control" required
+             pattern="^[a-zA-Z0-9 ]*$" title="Product Type can only contain letters, numbers, and spaces."
+             (input)="restrictSpecialCharacters($event)" />
+      <div *ngIf="productForm.get('productType')?.invalid && productForm.get('productType')?.touched">
+        <div *ngIf="productForm.get('productType')?.errors?.['required']" class="error-message">
+          Product Type is required.
+        </div>
+        <div *ngIf="productForm.get('productType')?.errors?.['maxlength']" class="error-message">
+          Product Type cannot exceed 50 characters.
+        </div>
+      </div>
+    </div>
+
+    <!-- Short Description -->
+    <div class="form-group">
+      <label for="pdesc">Short Description</label>
+      <textarea id="pdesc" formControlName="shortDescription" class="form-control" required
+                pattern="^[a-zA-Z0-9 ]*$" title="Short Description can only contain letters, numbers, and spaces."
+                (input)="restrictSpecialCharactersForDesc($event)"></textarea>
+      <div *ngIf="productForm.get('shortDescription')?.invalid && productForm.get('shortDescription')?.touched">
+        <div *ngIf="productForm.get('shortDescription')?.errors?.['required']" class="error-message">
+          Short Description is required.
+        </div>
+        <div *ngIf="productForm.get('shortDescription')?.errors?.['maxlength']" class="error-message">
+          Short Description cannot exceed 300 characters.
+        </div>
+        <div *ngIf="productForm.get('shortDescription')?.errors?.['pattern']" class="error-message">
+          Short Description can only contain letters and numbers.
+        </div>
+      </div>
+    </div>
+
+    <!-- Manufacturing Date -->
+    <div class="form-group">
+      <label for="mdate">Manufacture Date</label>
+      <input type="date" id="mdate" formControlName="mfgDate" class="form-control" />
+    </div>
+
+    <!-- Expiry Date -->
+    <div class="form-group">
+      <label for="edate">Expiry Date</label>
+      <input type="date" id="edate" formControlName="expiryDate" class="form-control" />
+      <div *ngIf="productForm.errors?.['expiryBeforeMfg']" class="error-message">
+        Expiry Date cannot be before Manufacturing Date.
+      </div>
+    </div>
+
+    <!-- Country of Origin -->
+    <div class="form-group">
+      <label for="origin">Country of Origin</label>
+      <select id="origin" formControlName="countryOfOrigin" class="form-control" required>
+        <option>Select countries</option>
+        <option *ngFor="let country of countries" [value]="country">{{ country }}</option>
+      </select>
+      <div *ngIf="productForm.get('countryOfOrigin')?.invalid && productForm.get('countryOfOrigin')?.touched">
+        <div *ngIf="productForm.get('countryOfOrigin')?.errors?.['required']" class="error-message">
+          Country of Origin is required.
+        </div>
+      </div>
+    </div>
+
+    <!-- Stock Quantity -->
+    <div class="form-group">
+      <label for="quantity">Stock Quantity</label>
+      <input type="number" id="quantity" formControlName="stockQuantity" class="form-control" (input)="restrictNumericInput($event, 10, true)" />
+      <div *ngIf="productForm.get('stockQuantity')?.invalid && productForm.get('stockQuantity')?.touched">
+        <div *ngIf="productForm.get('stockQuantity')?.errors?.['min']" class="error-message">
+          Stock Quantity must be a positive number.
+        </div>
+        <div *ngIf="productForm.get('stockQuantity')?.errors?.['pattern']" class="error-message">
+          Stock Quantity must be a number.
+        </div>
+        <div *ngIf="productForm.get('stockQuantity')?.errors?.['maxlength']" class="error-message">
+          Stock Quantity cannot exceed 10 digits.
+        </div>
+      </div>
+    </div>
+
+    <!-- Weight -->
+    <div class="form-group">
+      <label for="weight">Weight</label>
+      <input type="number" id="weight" formControlName="weight" class="form-control" step="0.01" (input)="restrictNumericInput($event, 10, true)" />
+      <div *ngIf="productForm.get('weight')?.invalid && productForm.get('weight')?.touched">
+        <div *ngIf="productForm.get('weight')?.errors?.['min']" class="error-message">
+          Weight must be a positive number.
+        </div>
+        <div *ngIf="productForm.get('weight')?.errors?.['pattern']" class="error-message">
+          Weight must be a number.
+        </div>
+        <div *ngIf="productForm.get('weight')?.errors?.['maxlength']" class="error-message">
+          Weight cannot exceed 10 digits.
+        </div>
+      </div>
+    </div>
+
+    <!-- Length -->
+    <div class="form-group">
+      <label for="length">Length</label>
+      <input type="number" id="length" formControlName="length" class="form-control" step="0.01" (input)="restrictNumericInput($event, 10, true)" />
+      <div *ngIf="productForm.get('length')?.invalid && productForm.get('length')?.touched">
+        <div *ngIf="productForm.get('length')?.errors?.['min']" class="error-message">
+          Length must be a positive number.
+        </div>
+        <div *ngIf="productForm.get('length')?.errors?.['pattern']" class="error-message">
+          Length must be a number.
+        </div>
+        <div *ngIf="productForm.get('length')?.errors?.['maxlength']" class="error-message">
+          Length cannot exceed 10 digits.
+        </div>
+        <div *ngIf="productForm.get('height')?.errors?.['maxlength']" class="error-message">
+          Height cannot exceed 10 digits.
+        </div>
+      </div>
+    </div>
+
+    <!-- Width -->
+    <div class="form-group">
+      <label for="width">Width</label>
+      <input type="number" id="width" formControlName="width" class="form-control" step="0.01" (input)="restrictNumericInput($event, 10, true)" />
+      <div *ngIf="productForm.get('width')?.invalid && productForm.get('width')?.touched">
+        <div *ngIf="productForm.get('width')?.errors?.['min']" class="error-message">
+          Width must be a positive number.
+        </div>
+        <div *ngIf="productForm.get('width')?.errors?.['pattern']" class="error-message">
+          Width must be a number.
+        </div>
+      </div>
+    </div>
+
+    <!-- Height -->
+    <div class="form-group">
+      <label for="height">Height</label>
+      <input type="number" id="height" formControlName="height" class="form-control" step="0.01" (input)="restrictNumericInput($event, 10, true)" />
+      <div *ngIf="productForm.get('height')?.invalid && productForm.get('height')?.touched">
+        <div *ngIf="productForm.get('height')?.errors?.['min']" class="error-message">
+          Height must be a positive number.
+        </div>
+        <div *ngIf="productForm.get('height')?.errors?.['pattern']" class="error-message">
+          Height must be a number.
+        </div>
+      </div>
+    </div>
+
+    <button type="Submit" class="btn btn-success" [disabled]="productForm.invalid">{{isEditMode ? 'Update':'Submit'}}</button>
+    <!--<button type="button" class="btn btn-secondary" (click)="onUpdate()">Update</button>-->
+  </form>
+</div>
+
+
